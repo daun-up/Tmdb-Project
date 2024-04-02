@@ -5,13 +5,14 @@ import App from "../App";
 function Home(){
     const [loading, setLoading] = useState(true);
     const [results, setMovies] = useState([]);
+    const KEY = process.env.REACT_APP_API_KEY;
     const getMovies = async () => {
         const json = await (
             await fetch(
                 `https://api.themoviedb.org/3/discover/movie`,
                 {
                     headers: {
-                        Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3Y2QxOTAzM2JmYzA3YmFmNzMwYTBkNzNlZmUyNTdhOCIsInN1YiI6IjY2MGJhMTU0NWFhZGM0MDE2MzYzNWY0NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dThumqTNOQ2xbVSd4t7ZijMkQVXjUOy84cd6dGOWohQ`
+                        Authorization: `Bearer ${KEY}`
                     }
                 }
             )
